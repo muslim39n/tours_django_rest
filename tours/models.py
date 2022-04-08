@@ -44,9 +44,9 @@ class Tour(models.Model):
     days = models.PositiveSmallIntegerField()
     services = models.ManyToManyField(Service, related_name='tours')
 
-    travel_agency = models.CharField(max_length=100, null=True, default=None)
+    travel_agency = models.CharField(max_length=100, blank=True, default='')
     phone_number = models.CharField(max_length=15)
-    phone_number_2 = models.CharField(max_length=15, null=True, default=None)
+    phone_number_2 = models.CharField(max_length=15, blank=True, default='')
     telegram = models.CharField(max_length=32, blank=True, null=True, default=None)
     delete_time = models.DateTimeField(null=True, default=None)
     
