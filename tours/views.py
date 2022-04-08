@@ -8,9 +8,12 @@ from .serializers import TourShortSerializer, TourSerializer
 
 class TourList(APIView):
     
-    def get(self, request, country_id, format=None):
-
-        tours = Tour.objects.filter(country__pk = country_id)
+    def get(self, request, city_name, country_id, format=None):
+        if city_name == 'almaty':
+            tours = Tour.from_almaty.filter(country__pk = country_id)
+        else:
+            tours = Tour.objects.filter(country__pk = country_id)
+            
         serializer = TourShortSerializer(tours, many=True)
         return Response(serializer.data)
 

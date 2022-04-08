@@ -34,6 +34,11 @@ class Service(models.Model):
     def __str__(self):
         return self.name
 
+class AlmatyTourManager(models.Manager):
+    def get_queryset(self):
+        almaty = City.objects.filter(name='Almaty').first()
+        return super().get_queryset().filter(from_city = almaty.id)
+
 class Tour(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField(blank=True, default='')
@@ -52,3 +57,6 @@ class Tour(models.Model):
     
     def __str__(self):
         return self.title[:50]
+
+    objects = models.Manager()
+    from_almaty = AlmatyTourManager()
