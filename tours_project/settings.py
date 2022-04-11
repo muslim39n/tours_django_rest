@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'locations.apps.LocationsConfig',
     'tours.apps.ToursConfig',
+    'tg.apps.TgConfig',
 
     #3rd party
     'rest_framework',
