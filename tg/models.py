@@ -17,6 +17,3 @@ class TGPage(models.Model):
     page = models.SmallIntegerField() #0-indexed
     created = models.DateTimeField(blank=True, default=datetime.now)
     
-    
-
-    

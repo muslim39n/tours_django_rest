@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import TGPage, TGUser
+
+admin.site.register(TGPage)
+admin.site.register(TGUser)
