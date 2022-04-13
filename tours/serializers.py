@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
 from .models import Service, Tour
+from locations.serializers import CountrySerializerRu, CitySerializerRu
 
 class TourShortSerializer(ModelSerializer):
     class Meta:
@@ -16,6 +17,8 @@ class ServiceSerializer(ModelSerializer):
 
 class TourSerializer(ModelSerializer):
     services = ServiceSerializer(many=True, read_only=True)
+    country = CountrySerializerRu(read_only=True)
+    from_city = CitySerializerRu(read_only=True)
     class Meta:
         model = Tour
         fields = ['id', 'title', 'description',
